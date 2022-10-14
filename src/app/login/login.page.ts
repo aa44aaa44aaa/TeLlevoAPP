@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Usuario } from './usuario';
@@ -13,7 +14,7 @@ export class LoginPage implements OnInit {
   usuario: Usuario
   mensaje: string
 
-  constructor(private servicio: LoginService, private router: Router) { }
+  constructor(private servicio: LoginService, private router: Router, private toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,18 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/home-conductor',txtUser.value])
     } else {
       this.mensaje = "Usuario y/o Contraseña Incorrectos"
+      this.presentToast(this.mensaje);
     }
+  } 
+
+  async presentToast(mensaje) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 1500,
+      cssClass: 'alert-toast',
+      icon: 'warning-outline'
+    });
+
+    await toast.present();
   }
 }

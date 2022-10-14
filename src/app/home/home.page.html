@@ -29,18 +29,26 @@
 <ion-router-outlet id="main"></ion-router-outlet>
   <!--Buscador-->
     <ion-list>
+      <ion-grid>
+        <ion-row>
+        
       <ion-item *ngFor="let aux of conductor" [routerLink]="['/home/:user', aux.id]">
+        <ion-col> 
         <ion-card class="color">
           <img src="{{ aux.imagen }}" alt="">
           <ion-card-header>
-            <ion-card-title> <b><ion-icon name="location-outline"></ion-icon> {{ aux.area }}</b> </ion-card-title>
+          <ion-card-title> <b><ion-icon name="location-outline"></ion-icon> {{ aux.area }}</b> </ion-card-title>
           </ion-card-header>
           <ion-card-content> Valor: ${{ aux.precio }}<br>
           Conductor: {{ aux.nombre }}<br>
           Auto: {{ aux.tipoAuto }} {{ aux.patente }} </ion-card-content>
         <ion-card-content style="text-align: center;"><ion-icon name="time-outline"></ion-icon> {{ aux.hora }}<br><ion-icon name="person-sharp"></ion-icon> {{ aux.capacidad }} asientos libres</ion-card-content>
       </ion-card>
+    </ion-col>
     </ion-item>
+
+  </ion-row>
+    </ion-grid>
     </ion-list>
     
     

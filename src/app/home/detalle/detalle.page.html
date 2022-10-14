@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title class="tellevo">Viaje a {{ conductor.area }}</ion-title>
+    <ion-title class="tellevo"><ion-icon name="location-outline"></ion-icon> Programa tu viaje</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -15,11 +15,16 @@
 <ion-content>
       <img src="{{ conductor.imagen }}" alt="">
       <h4></h4>
-      <ion-title style="text-align: center;" class="nombreInicio"> <b><ion-icon name="location-outline"></ion-icon> {{ conductor.area }}</b> </ion-title>
+      <ion-item>
+      <ion-title style="text-align: center;" class="nombreInicio"> <b>{{ conductor.area }}</b> </ion-title>
+      </ion-item>
 
       <ion-card-content style="text-align: center;"><ion-icon name="time-outline"></ion-icon> {{ conductor.hora }}<br><ion-icon name="person-sharp"></ion-icon> {{ conductor.capacidad }} asientos libres</ion-card-content>
+      
       <ion-title style="text-align: center;" class="nombreInicio"> <h4>Sobre tu viaje</h4> </ion-title>
+      
       <ion-card-content> <ion-icon name="cash-outline"></ion-icon><b>Precio:</b> {{ conductor.precio }} <br>
+        
       <ion-icon name="car-outline"></ion-icon><b>Patente:</b> {{ conductor.patente }}<br>
       <ion-icon name="card-outline"></ion-icon><b>Pago:</b> {{ conductor.tipoPago }}<br>
       <ion-icon name="person-outline"></ion-icon><b>Conductor:</b> {{ conductor.nombre }}<br></ion-card-content>
